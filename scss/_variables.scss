@@ -1,0 +1,69 @@
+@use "sass:map";
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+
+:root {
+  --white: #FFFFFF;
+  --wild-sandt: #F4F3F4;
+  --bon-jour: #E5E4E5;
+  --gray: #C9C6CA;
+  --pink: #E93CAC;
+  --alabaster: #F8F7F8;
+  --mine-shaft: #303030;
+  --rum: #866F90;
+  --bleached-cedar: #261C2B;
+  --mortar: #4A3D50;
+  --nav-animation: .3s;
+  --nav-main-height: 80px;
+  --nav-main-logo: 160px;
+}
+
+$brand-colors: (
+  "white": var(--white),
+  "wild-sandt": var(--wild-sandt),
+  "bon-jour": var(--bon-jour),
+  "gray": var(--gray),
+  "pink": var(--pink),
+  "alabaster": var(--alabaster),
+  "mine-shaft": var(--mine-shaft),
+  "rum": var(--rum),
+  "bleached-cedar": var(--bleached-cedar),
+  "mortar": var(--mortar)
+);
+
+@include media-breakpoint-up(sm) { 
+:root {
+    --current-breakpoint: #{strip-unit(map.get($grid-breakpoints, sm))};
+  }
+}
+@include media-breakpoint-up(md) { 
+  :root {
+    --current-breakpoint: #{strip-unit(map.get($grid-breakpoints, md))};
+    --nav-main-height: 90px;
+    --nav-main-logo: 180px;
+  }
+}
+@include media-breakpoint-up(lg) { 
+  :root {
+    --current-breakpoint: #{strip-unit(map.get($grid-breakpoints, lg))};
+    --nav-main-logo: 220px;
+  }
+}
+@include media-breakpoint-up(xl) { 
+  :root {
+    --current-breakpoint: #{strip-unit(map.get($grid-breakpoints, xl))};
+    --nav-main-height: 100px;
+    --nav-main-logo: auto;
+  }
+}
+@include media-breakpoint-up(xxl) { 
+  :root {
+    --current-breakpoint: #{strip-unit(map.get($grid-breakpoints, xxl))};
+  }
+}

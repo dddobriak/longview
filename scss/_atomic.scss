@@ -1,0 +1,36 @@
+// Background colors
+@each $key, $value in $brand-colors {
+  .bg-#{$key} {
+    background-color: $value;
+  }
+}
+
+// Font colors
+@each $key, $value in $brand-colors {
+  .text-#{$key} {
+    color: $value;
+  }
+}
+
+// HR colors
+@each $key, $value in $brand-colors {
+  .hr-#{$key} {
+    color: $value;
+    opacity: 1;
+  }
+}
+
+.btn {
+  &-brand {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--white);
+    border: 1px solid var(--white);
+    border-radius: 0;
+    padding: 13px 26px;
+
+    &:hover {
+      color: var(--pink);
+    }
+  }
+}
