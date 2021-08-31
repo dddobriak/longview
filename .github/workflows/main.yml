@@ -27,7 +27,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Make destination directory for compiled CSS
-        run: mkdir -vp /css
+        run: mkdir -vp /tmp/longview/css
         
       - name: Compile CSS from SCSS files
         uses: gha-utilities/sass-build@v0.4.5
